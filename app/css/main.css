@@ -26,7 +26,7 @@ body {
   font-family: "Roboto", sans-serif;
   font-size: 18px;
   color: #363946;
-  min-width: 1024px; }
+  min-width: 1004px; }
 
 .wrapper {
   position: relative;
@@ -404,6 +404,6 @@ figure {
       color: #ffffff; }
 
 /*/footer*/
-@media (max-width: 980px) {
+@media (max-width: 1200px) {
   .title-portf {
     font-size: 20px; } }
