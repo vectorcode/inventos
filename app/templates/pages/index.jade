@@ -1,60 +1,68 @@
 block link
-  -var selected = 'Обо мне';
+  -var selected = 'Портфолио';
 
 extends ../layouts/main_layout.jade
 
 block title
-  title Главная страница 
+  title Портфолио
 
 block content
-  section.aboutbox
-    h2.aboutbox-header Основная информация
-    .aboutbox-body.clearfix
-      .image-wrap
-        .avatar-box
-          img.avatar(src="img/face.png", alt="Гомер Симпсон")
-      .worksheet-wrap
-        ul.worksheet-list
-          li.worksheet-item.clearfix
-            .worksheet-what Меня зовут:
-            .worksheet-info Гомер Симпсон
-          li.worksheet-item.clearfix
-            .worksheet-what Мой возраст:
-            .worksheet-info 40 лет
-          li.worksheet-item.clearfix
-            .worksheet-what Мой город:
-            .worksheet-info Санкт Петербург, Россия
-          li.worksheet-item.clearfix
-            .worksheet-what Моя специализация:
-            .worksheet-info FRONTEND разработчик
-          .worksheet-item.clearfix
-            .worksheet-what Ключевые навыки:
-            .worksheet-info.skills
-              ul.skills-list
-                li.skill-item html
-                li.skill-item css
-                li.skill-item javascript
-                li.skill-item gulp
-                li.skill-item git
-  //- Опыт работы
-  section.aboutbox
-    h2.aboutbox-header Опыт работы
-    .aboutbox-body
-      ul.aboutbox-list
-        li.aboutbox-item.icon-work
-          .where "ИП Боровицкий" - Продавец дисков
-          .period Сентябрь 2005 - Август 2008
-        li.aboutbox-item.icon-work
-          .where "ООО Системы безопастности" - Системный администратор
-          .period Июнь 2008 - Июль 2010
-  //- Образование
-  section.aboutbox
-    h2.aboutbox-header Опыт работы
-    .aboutbox-body
-      ul.aboutbox-list
-        li.aboutbox-item.icon-college
-          .where Незаконченное высшее. СПБНИУ ИТМО
-          .period ктябрь 2012 - по настоящее время
-        li.aboutbox-item.icon-course
-          .where Курсы Loftschool
-          .period Ноябрь 2014 - по настоящее время
+          aside.blk-indicators.wow.slideInLeft
+            mixin indicator-item(title, info, doptex)
+              li.blk-indicators-item
+                .blk-indicators-title #{title}
+                .blk-indicators-info #{info}
+                  sup.blk-indicators-doptex #{doptex}
+
+
+            ul.blk-indicators-wrp
+              +indicator-item('Местоположение:', 'Россия, г. Москва, ул. Прибрежная 1','')
+              +indicator-item('Цель:', 'Создать модель загородного коттеджного поселка','')
+
+            ul.blk-indicators-wrp
+              +indicator-item('Год: ', '2015','')
+              +indicator-item('Итог:', 'Поселок находится в стадии строительства','')
+
+            ul.blk-indicators-wrp
+              +indicator-item('Площадь:', '2 548 м','2')
+              +indicator-item('Над проектом работали:', '2 548 человек','')
+
+          article.content.wow.slideInRight
+            h1.blk-title.st-1  Описание
+            .content-text
+              p Жилой комплекс бизнес класса «Правый берег» удачно расположен в городе Химки на берегу канала им. Москвы. Окруженный зеленью с собственным выходом к воде он не оставит равнодушным даже самого искушенного покупателя. В проекте использованы преимущества близости к воде в сочетании с передовыми архитектурными и техническими решениями. Собственная лагоустроенная набережная и комплексное озеленение создают комфортную территорию для отдыха жителей, а детские площадки с современными развивающими игровыми городками идеально подходят для прогулок с детьми.
+              p Двухуровневый подземный паркинг рассчитан на 790 машино-мест и представляет собой отапливаемые помещения, оснащенные современными коммуникациями. Доступ в паркинг осуществляется на лифтах непосредственно из жилой зоны. Проектировщиками разработаны системы транспортной логистики въездов и выездов из паркинга, а также движения автотранспорта по подземной части комплекса.
+              .text-1
+                p Жилой комплекс бизнес класса «Правый берег» удачно расположен в городе Химки на берегу канала им. Москвы. Окруженный зеленью с собственным выходом к воде он не оставит равнодушным даже самого искушенного покупателя. В проекте использованы преимущества близости к воде в сочетании с передовыми архитектурными и техническими решениями. Собственная лагоустроенная набережная и комплексное озеленение создают комфортную территорию для отдыха жителей, а детские площадки с современными развивающими игровыми городками идеально подходят для прогулок с детьми.
+                p Двухуровневый подземный паркинг рассчитан на 790 машино-мест и представляет собой отапливаемые помещения, оснащенные современными коммуникациями. Доступ в паркинг осуществляется на лифтах непосредственно из жилой зоны. Проектировщиками разработаны системы транспортной логистики въездов и выездов из паркинга, а также движения автотранспорта по подземной части комплекса.
+
+            .blk-read-more(data-textclass="text-1")
+              .blk-read-more-text Читать далее
+              .blk-read-more-ico
+
+          aside.blk-humans.wow.slideInLeft
+            h2.blk-title.st-2 Над проектом работали
+
+            mixin human(src, name, position)
+              figure.blk-humans-item
+                .blk-humans-wrp
+                  img.blk-humans-img(src="img/#{src}" alt="#{name}")
+                figcaption 
+                  span.blk-humans-position #{position}
+                  span.blk-humans-name #{name}
+            +human('human-1.jpg', 'Александр Прокопенко', 'Главный архитектор')
+            +human('human-2.jpg', 'Мария Харитонова', '3D Дизайнер')
+            +human('human-3.jpg', 'Михаил Гардеев', 'Менеджер проекта')
+
+block btn-slider
+        mixin btn-slide(src, alt)
+          li.btn-slider-item
+            img.btn-slider-img(src="img/#{src}", alt="#{alt}")
+        
+        .btn-slider.scroll-pane
+          ul.btn-slider-wrp
+            +btn-slide('btn_slide_1.jpg', 'seo text1')
+            +btn-slide('btn_slide_2.jpg', 'seo text2')
+            +btn-slide('btn_slide_3.jpg', 'seo text3')
+            +btn-slide('btn_slide_4.jpg', 'seo text4')
+          

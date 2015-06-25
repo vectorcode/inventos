@@ -1,14 +1,35 @@
-header.page-header
-  .container-big
-    a.header-logo-link
-      img.logo-img(src="img/logo.png", alt="logo")
-      span.header-logo-text Сайт портфолио
-    ul.socials
-      li.socials-item
-        a.socials-link.vk(href="", target="_blank")
-      li.socials-item
-        a.socials-link.tw(href="", target="_blank")
-      li.socials-item
-        a.socials-link.fb(href="", target="_blank")
-      li.socials-item
-        a.socials-link.gt(href="", target="_blank")
+header.header
+          mixin slide(src, name)
+            li.head-sileder-item
+              img(src="img/#{src}", alt="#{name}")
+
+          ul.head-sileder.bxslider
+            +slide('head_slide_1.jpg', 'Тестовый слайд')
+            +slide('head_slide_1.jpg', 'Тестовый слайд')
+            +slide('head_slide_1.jpg', 'Тестовый слайд')
+
+          .blk-top
+            block link
+            -var menu  = { 'Бюро': '/buro.html', 'Портфолио': '/portfolio.html', 'Блог': '/blog.html', 'Контакты' : 'contacts.html'};
+            nav.navigation
+              span.navigation-text Портфолио
+                ul.navigation-list
+                  each val, key in menu
+                    if selected === key
+                      li.navigation-item.current
+                        a.navigation-link(href=val)= key
+                    else
+                      li.navigation-item
+                        a.navigation-link(href=val)= key
+
+            .contrl-blk
+              bottom.contrl-blk-btn.prev
+              bottom.contrl-blk-btn.next
+            .title-portf Коттеджный поселок " Right Bank "
+          .blk-share
+            .blk-share-ico
+            .blk-share-text Поделиться
+            .blk-share-soc
+              a.blk-share-soc-link.instagram(href="#", target="_blank")
+              a.blk-share-soc-link.vk(href="#", target="_blank") 
+          .blk-line-slider

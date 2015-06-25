@@ -1,8 +1,11 @@
 {
-  "name": "front_prj",
+  "name": "inventos_tz",
   "dependencies": {
     "jquery": "1.11",
     "normalize.css": "~3.0.3",
-    "modernizer": "~2.8.2"
+    "modernizer": "~2.8.2",
+    "bx-slider.js": "~4.2.5",
+    "jscrollpane": "~2.0.22",
+    "wowjs": "~1.1.2"
   }
 }

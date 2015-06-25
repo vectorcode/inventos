@@ -1,23 +1,36 @@
-footer.page-footer
-	.container
-		.lock
-			a.lock-inner(href="/login.html") Войти
-		.copyright © 2015, Это сайт Гомера, пожалуйста, не копируйте и не воруйте его
+footer.page-footer.footer
+      section.wrp
+        .f-menu-wrp
+          address.contacts
+            mixin soc(link, cls)
+              li.blk-soc-item
+                a.blk-soc-link(href="#{link}", target="_blank", class="#{cls}") 
+            ul.blk-soc
+              +soc('#', 'odnkl')
+              +soc('#', 'inst')
+              +soc('#', 'vk')
+              +soc('#', 'fb')
+            a.contacts-tel(href="tel:+74959469460") 8 (495) 946-94-60
+
+          nav.ftr-nav
+            ul.ftr-nav-blk
+              each val, key in menu
+                li.ftr-nav-blk-item
+                  a.ftr-nav-blk-link(href=val)= key
+        .footer-text © 2015, Ребрус. Все права защищены.
 
 <!-- build:js js/vendor.js --> 
 //bower:js
 script(src='/bower/jquery/dist/jquery.js')
-script(src='/bower/bpopup/jquery.bpopup.js')
-script(src='/bower/jquery-placeholder/jquery.placeholder.js')
-script(src='/bower/qtip2/jquery.qtip.js')
+script(src='/bower/bx-slider.js/dist/jquery.bxslider.js')
+script(src='/bower/jscrollpane/script/jquery.jscrollpane.min.js')
+script(src='/bower/jscrollpane/script/jquery.mousewheel.js')
+script(src='/bower/wowjs/dist/wow.min.js')
+  
 //endbower  
 <!-- endbuild --> 
 
 <!-- build:js js/main.js --> 
-script(src="js/login.js")
-script(src="js/add_project.js")
-script(src="js/validation.js")
-script(src="js/contact_me.js")
 script(src="js/plugins.js")
 script(src="js/main.js")
 <!-- endbuild --> 

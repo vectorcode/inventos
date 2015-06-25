@@ -20,3 +20,50 @@
         }
     }
 }());
+
+
+//Модуль - читать дальше
+var readMore = (function($) {
+    'use strict';
+    
+    var init = function(cls){//публичный метод
+        var blkShowMore = $(cls),
+            textClass = blkShowMore.data('textclass'),
+            blkText = $('.'+textClass);
+            
+        if(blkText.length === 0){
+            console.warn("Нет блоков с классом "+textClass);
+            return false;     
+        }
+
+        blkText.hide();
+        _bind(blkShowMore, blkText);
+
+
+        _c("Инициализировали модуль readMore");
+    },
+    _c = function(text){
+        var flag = false;
+        if(flag){console.log(text);}
+    },
+    _bind = function(blk, bText){
+        blk.on('click', function(event) {
+            event.preventDefault();
+            _c('Клик readMore');
+
+            if (!$(this).hasClass('active')) {
+                _c('Показываем текст');
+                bText.animate({height: 'show'}, 500);
+                $(this).addClass('active').find('.blk-read-more-text').text('Скрыть текст');
+           }else{
+                _c('Прячем текст');
+                bText.animate({height: 'hide'}, 500);
+                $(this).removeClass('active').find('.blk-read-more-text').text('Читать далее');
+           };
+                    
+        });
+    };
+ 
+    return {init : init};
+}(jQuery));
+// читать дальше /
