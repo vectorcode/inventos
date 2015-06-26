@@ -1,8 +1,3 @@
-// Для старых браузеров подключаем jquery.placeholder
-if (!Modernizr.input.placeholder){
-  $('input, textarea').placeholder();
-} 
-
 //Блок ПОДЕЛИТЬСЯ
 var likeBtn = $('.blk-share'),
 	socialslinks = $(".blk-share-soc-link");
